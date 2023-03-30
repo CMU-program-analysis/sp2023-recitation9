@@ -20,12 +20,24 @@ def mul(i, x1, x2):
 def shl(i, x1, x2):
     return If(Bool(f'B{i}'), (x1 << x2), BitVecVal(0, 16))
 
+'''
+The main steps of the synthesis process are as follows:
 
+1. Define Z3 variables and expressions for the possible operations.
+2. Add a constraints to only allow one operation to be part of the solution per line.
+3. Add constraints for each input-output pair.
+4. Solve the Z3 formula to synthesize the function.
+'''
 def formula(pairs):
 
     constraint = True
-    for pairs, output in io_pairs:
+    for inputs, output in io_pairs:
+         
+        # first op
         intermediate_result = BitVec(f"interm_{count}", 16)
+     
+        # second op
+      
     return constraint
 
 if __name__ == '__main__':
