@@ -34,7 +34,7 @@ From the given IO pairs, you may already be able to tell what the function shoul
 but we can still formulate this as a synthesis problem and use Z3 to solve it. This technique
 will become especially helpful for dealing with more complicated functions (i.e. like the one you will synthesize in HW8). 
 
-You can use the template in `problem.py` to help you get started!
+You can use the template in `ex1.py` to help you get started!
 
 
 The main steps of the synthesis process are as follows:
@@ -54,6 +54,9 @@ The function will take three ORDERED inputs and produces an output. Based on mag
 It only uses the operations * and +.
 It returns the result of a single statement of the form `fun1(fun2(x, y), z)`.
 It uses all inputs, but you do not know in what order.
+
+You can use the template in `ex2.py` to help you get started!
+
 
 ### Function IO Pairs:
    IN: (3, 5, 2)    OUT: 192  
