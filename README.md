@@ -3,9 +3,9 @@
 Programming by Example (PBE) is the process of generating a program from a set of input-output pairs (or examples). In PBE, the goal is learn a program that can generalize from the given examples and produce correct outputs for inputs not seen before.
 
 In this recitation, you are going to synthesize a simple function using Z3, an SMT (Satisfiability Modulo Theories) solver. 
-Given a set of input-output pairs, your goal is to construct a Z3 formula that represents the constraints imposed by these examples. The Z3 solver will then attempt to find a solution that satisfies all of the constraints, effectively synthesizing the function that corresponds to the input-output pairs.
+Given a set of input-output pairs, your goal is to construct a Z3 formula that represents the constraints imposed by these examples. The Z3 solver will then attempt to find a solution that satisfies all of the constraints. The solution to the formula corresponds to a function that satisfies the input-output pairs.
 
-To accomplish this, you will need to create Z3 variables and expressions that represent the possible operations, and use them to construct constraints based on the input-output pairs. The mul and shl convenience functions provided in the problem.py template can be used to create such constraints.
+To accomplish this, you will need to create Z3 variables and expressions that represent the possible operations, and use them to construct constraints based on the input-output pairs.
 
 
 ### Set up
