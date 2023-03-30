@@ -1,10 +1,17 @@
-# Set up
+# Inductive Program Synthesis
 
-Set up the Python interface for Z3 using `pip install z3-solver`
+Programming by Example (PBE) is the process of generating a program from a set of input-output pairs (or examples). In PBE, the goal is learn a program that can generalize from the given examples and produce correct outputs for inputs not seen before.
 
-# Challenge
+In this recitation, you are going to synthesize a simple function using Z3, an SMT (Satisfiability Modulo Theories) solver. 
+Given a set of input-output pairs, your goal is to construct a Z3 formula that represents the constraints imposed by these examples. The Z3 solver will then attempt to find a solution that satisfies all of the constraints, effectively synthesizing the function that corresponds to the input-output pairs.
 
-Synthesize a simple function using Z3!
+To accomplish this, you will need to create Z3 variables and expressions that represent the possible operations, and use them to construct constraints based on the input-output pairs. The mul and shl convenience functions provided in the problem.py template can be used to create such constraints.
+
+
+### Set up
+
+Set up the Python interface for Z3 using `pip install z3-solver` or use Codespaces
+
 
 ### Function Specification:
 
@@ -26,6 +33,15 @@ but we can still formulate this as a synthesis problem and use Z3 to solve it. T
 will become especially helpful for dealing with more complicated functions (i.e. like the one you will synthesize in HW8). 
 
 You can use the template in `problem.py` to help you get started!
+
+
+The main steps of the synthesis process are as follows:
+
+- Define Z3 variables and expressions for the possible operations.
+- Add a constraints to only allow one operation to be part of the solution.
+- Add constraints for each input-output pair.
+- Solve the Z3 formula to synthesize the function.
+
 
 ```python
 from z3 import *
