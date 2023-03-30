@@ -51,9 +51,9 @@ The main steps of the synthesis process are as follows:
 
 The function will take three ORDERED inputs and produces an output. Based on magic intuition, we know the following about the function:
 
-It only uses the operations * and +.
-It returns the result of a single statement of the form `fun1(fun2(x, y), z)`.
-It uses all inputs, but you do not know in what order.
+1. It only uses the operations * and <<.
+2. It returns the result of a single statement of the form `fun1(fun2(x, y), z)`.
+3. It uses all inputs, but you do not know in what order.
 
 You can use the template in `ex2.py` to help you get started!
 
