@@ -20,16 +20,38 @@ def shl(i, x1, x2):
     return If(Bool(f'B{i}'), (x1 << x2), 0)
 
 '''
-Your Synthesizer: construct a Z3 formula using input/output pairs.
-Hints:
-    1. Consider encoding each possible function using Z3 Bool variables 
-    2. Add a constraint that only allows one operation to be a part of the solution
-    2. Add a constraint/constraints for each IO pair
+One possible solution
 '''
 def formula(pairs):
+    initial_constraint = sum([If(Bool(f'B{i}'), 1, 0) for i in range(4)]) == 1
+    constraint = False
+    for i in range(4):
+        option_constraint = True
+        for (x, y), ans in io_pairs:
+            if i == 0:
+                pair_constraint = mul(0, x,y) == ans
+            if i == 1:
+                pair_constraint = mul(1, y,x) == ans
+            if i == 2:
+                pair_constraint = shl(2, x,y) == ans
+            if i == 3:
+                pair_constraint = shl(3, y,x) == ans
+            option_constraint = And(option_constraint, pair_constraint)
+        constraint = Or(constraint, option_constraint)
+
+    constraint = And(constraint, initial_constraint)
+    return constraint
+
+'''
+Another possible solution
+'''
+def formula1(pairs):
+    initial_constraint = sum([If(Bool(f'B{i}'), 1, 0) for i in range(4)]) == 1
     constraint = True
     for (x, y), ans in io_pairs:
-        constraint = True
+        pair_constraint = mul(0,x,y) + mul(1,y,x) + shl(2,x,y) + shl(3,y,x) == ans
+        constraint = And(constraint, pair_constraint)
+    constraint = And(constraint, initial_constraint)
     return constraint
 
 if __name__ == '__main__':
